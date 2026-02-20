@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>This Is Your Year 💜</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- PASSWORD SCREEN -->
+<div id="lockScreen" class="center intro-fade">
+  <h1>🎁 Private Birthday Message 🎁</h1>
+  <p>Enter the secret password 💜</p>
+  <input type="password" id="passwordInput" placeholder="Password">
+  <button onclick="unlock()">Unlock 💖</button>
+  <p id="error"></p>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="mainContent" class="hidden">
+
+  <audio id="bgMusic" loop>
+    <source src="assets/music/song.mp3" type="audio/mpeg">
+  </audio>
+
+  <section class="hero fade-in">
+    <h1 class="glow-title">🎂 Happy Birthday to my Beautiful Girlfriend 💜</h1>
+    <p>This year is yours, your growth, your strength, your glow ✨</p>
+  </section>
+
+  <!-- Scroll Arrow -->
+  <div id="scrollArrow" class="scroll-arrow">⬇</div>
+
+  <!-- Floating Quote -->
+  <div class="floating-quote">
+    “You are stronger than you realize, and this year will prove it.”
+  </div>
+
+  <section class="message fade-in">
+    <h2 class="glow-title">💌 This Is Your Year</h2>
+    <p>
+      Today isn’t just your birthday,  it’s the start of a new chapter for you.<br><br>
+
+      <strong>Your Strength:</strong><br>
+      You carry so much with grace. Even when life gets heavy, you keep going with a quiet strength that deserves recognition.<br><br>
+
+      <strong>Your Growth:</strong><br>
+      You’ve grown in ways you don’t even realize. You’ve become more confident, more self-aware, and more grounded in who you are.<br><br>
+
+      <strong>Your Goals:</strong><br>
+      I hope this year brings you closer to everything you want, your dreams, your peace, your success, your happiness.<br><br>
+
+      <strong>Your Beauty:</strong><br>
+      Your beauty hits in every way, your hair, your green eyes, your smile, but what makes you  even more unforgettable is your softness, your kindness, and the energy your bring, into a room. You shine without even trying.<br><br>
+
+      <strong>Your Personality:</strong><br>
+      You’re funny, thoughtful, caring, and real. You carry this beautiful mix of softness and strength that stays with people.<br><br>
+
+      <strong>Your Accomplishments:</strong><br>
+      You’ve overcome challenges, learned lessons, and kept moving forward. You should be proud of everything you’ve done and everything you’re becoming.<br><br>
+
+      This is your year, your time to shine, to grow, to heal, to laugh, to love, and to step into the woman you’re meant to be. 💜
+    </p>
+  </section>
+
+  <section class="coupons fade-in">
+    <h2 class="glow-title">🎁 Birthday Treats</h2>
+    <div class="coupon-grid">
+
+      <div class="coupon treat">
+        ✨ A Compliment Anytime You Want
+        <div class="treat-reveal">You can ask me for a compliment anytime  I’ll remind you how amazing you are.</div>
+      </div>
+
+      <div class="coupon treat">
+        🌙 A Stress-Free Night
+        <div class="treat-reveal">Tonight is your stress-free night. No worries, no pressure, just rest and peace.</div>
+      </div>
+
+      <div class="coupon treat">
+        💌 A Letter About Your Strength
+        <div class="treat-reveal">I’ll write you a message about your strength and everything I admire about you.</div>
+      </div>
+
+      <div class="coupon treat">
+        🎶 A Song Recommendation
+        <div class="treat-reveal">I’ll send you a song that reminds me of you and your energy.</div>
+      </div>
+
+      <div class="coupon treat">
+        📞 Unlimited Calls Day
+        <div class="treat-reveal">A day where you can call me as much as you want, I’m all yours.</div>
+      </div>
+
+      <div class="coupon treat">
+        💖 A Special Message
+        <div class="treat-reveal">A special message from me, written just for you when you choose to redeem this.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Tap to Reveal Compliments -->
+  <section class="compliments fade-in">
+    <h2 class="glow-title">💫 Tap to Reveal Compliments</h2>
+    <p>Each card holds something true about you. Tap to reveal it.</p>
+    <div class="compliment-grid">
+      <div class="compliment-card">
+        <div class="compliment-front">Tap to reveal</div>
+        <div class="compliment-back">
+          You make the world softer just by being in it.
+        </div>
+      </div>
+      <div class="compliment-card">
+        <div class="compliment-front">Tap to reveal</div>
+        <div class="compliment-back">
+          Your strength is quiet, but it’s powerful and unforgettable.
+        </div>
+      </div>
+      <div class="compliment-card">
+        <div class="compliment-front">Tap to reveal</div>
+        <div class="compliment-back">
+          You deserve more love, peace, and joy than you even allow yourself to imagine.
+        </div>
+      </div>
+      <div class="compliment-card">
+        <div class="compliment-front">Tap to reveal</div>
+        <div class="compliment-back">
+          Your presence alone is enough, you don’t have to prove anything to anyone.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="game fade-in">
+    <h2 class="glow-title">🎮 Mini Game: Catch The Hearts</h2>
+    <p>Tap the falling hearts 19 to reveal a suprise 💜</p>
+    <div id="gameArea"></div>
+    <p>Score: <span id="score">0</span></p>
+  </section>
+
+  <section class="surprise fade-in">
+    <h2 class="glow-title">✨ Hidden Message</h2>
+    <button onclick="showSurprise()">Reveal 💜</button>
+    <p id="surpriseText" class="hidden">
+      You deserve a year full of peace, joy, success, and love, and I hope you never forget how powerful, beautiful, and capable you are. 💕
+    </p>
+  </section>
+
+  <!-- Final Happy Birthday + Sparkles -->
+  <section class="final-section fade-in">
+    <h2 class="glow-title">🎉 Happy Birthday, This Is Your Year 🎉</h2>
+    <p>
+      No matter what this year brings, I hope you never forget how special you are, how much you’ve grown, and how much more is waiting for you. 💜
+    </p>
+    <div id="sparkleContainer"></div>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #5a189a, #9d4edd);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Floating hearts background */
+body::before {
+  content: "💜 💜 💜 💜 💜";
+  position: fixed;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  font-size: 40px;
+  animation: floatHearts 10s linear infinite;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+@keyframes floatHearts {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(120%); }
+}
+
+.center {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input, button {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  margin: 8px;
+}
+
+button {
+  background: white;
+  color: purple;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Intro fade */
+.intro-fade {
+  animation: introFade 1.2s ease-out;
+}
+
+@keyframes introFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade-in animation */
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero {
+  padding: 50px 15px;
+}
+
+section {
+  padding: 30px 15px;
+}
+
+/* Glow titles */
+.glow-title {
+  text-shadow: 0 0 12px rgba(60, 0, 120, 0.6);
+}
+
+/* Scroll arrow */
+.scroll-arrow {
+  font-size: 28px;
+  margin-top: -10px;
+  cursor: pointer;
+  animation: bounceArrow 1.5s infinite;
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* Floating quote */
+.floating-quote {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  opacity: 0.8;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: rgba(20, 0, 40, 0.4);
+  box-shadow: 0 0 12px rgba(40, 0, 80, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 5;
+}
+
+/* Message */
+.message {
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.7;
+}
+
+/* Coupons */
+.coupon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.coupon {
+  background: white;
+  color: purple;
+  padding: 15px;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(40, 0, 80, 0.3);
+}
+
+.coupon:hover {
+  transform: scale(1.05);
+}
+
+/* Popup */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-box {
+  background: rgba(25, 0, 50, 0.95);
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 320px;
+  width: 90%;
+  box-shadow: 0 0 18px rgba(90, 0, 160, 0.6);
+  animation: popupIn 0.3s ease-out;
+}
+
+@keyframes popupIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.popup-tap {
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(60, 0, 110, 0.7);
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.popup-message {
+  margin-top: 8px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(100, 0, 170, 0.4);
+}
+
+/* Compliments */
+.compliment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.compliment-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 18px;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(40, 0, 80, 0.4);
+}
+
+.compliment-front,
+.compliment-back {
+  transition: opacity 0.3s ease;
+}
+
+.compliment-back {
+  opacity: 0;
+}
+
+.compliment-card.revealed .compliment-front {
+  opacity: 0;
+}
+
+.compliment-card.revealed .compliment-back {
+  opacity: 1;
+}
+
+/* Game */
+#gameArea {
+  position: relative;
+  height: 300px;
+  border: 2px dashed white;
+  border-radius: 12px;
+  margin: 15px;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  font-size: 28px;
+  cursor: pointer;
+  animation: fall 3s ease-in forwards;
+}
+
+@keyframes fall {
+  0% { top: -40px; opacity: 0; }
+  10% { opacity: 1; }
+  100% { top: 320px; opacity: 0; }
+}
+
+/* Surprise */
+.surprise p {
+  font-size: 22px;
+  margin-top: 15px;
+}
+
+/* Final section + sparkles */
+.final-section {
+  position: relative;
+  padding-bottom: 60px;
+}
+
+#sparkleContainer {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+  animation: sparkleUp 2s linear forwards;
+}
+
+@keyframes sparkleUp {
+  0% { transform: translateY(40px); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-80px); opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .floating-quote {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
+.birthday-popup {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(90, 0, 150, 0.9);
+  padding: 20px 30px;
+  border-radius: 15px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255,255,255,0.8);
+  box-shadow: 0 0 20px rgba(120, 0, 200, 0.7);
+  animation: fadeInScale 0.5s ease;
+  z-index: 99999;
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
